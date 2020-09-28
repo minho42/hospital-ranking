@@ -1,0 +1,11 @@
+venv/
+.env
+*.pyc
+.vscode/
+.DS_Store
+__pycache__/
+*.log
+node_modules/
+.idea/
+package.json
+package-lock.json
