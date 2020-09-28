@@ -78,7 +78,7 @@ class GoogleReviewReader:
         self.base_url = "https://www.google.com.au/search?q="
         self.review_class_name = "Ob2kfd"
 
-    def get(self, name: str) -> Union(Tuple(str, str), Tuple(None, None)):
+    def get(self, name: str) -> Union[Tuple[str, str], Tuple[None, None]]:
         name_for_url = name.replace(" ", "+")
         url = f"{self.base_url}{name_for_url}"
 
