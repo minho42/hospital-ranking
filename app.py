@@ -30,28 +30,13 @@ def get_chromedriver(headless: bool = True) -> object:
         options.add_argument(
             "--remote-debugging-port=9222"
         )  # Trying to fix WebDriverException("unknown error: DevToolsActivePort file doesn't exist", None, None)
-        # options.add_argument("--window-size=1920x1080")
     options.add_experimental_option("prefs", prefs)
-    # options.add_argument(f'user-agent={USER_AGENT}')
-    # options.add_argument("disable-infobars") --> flag removed: https://chromium.googlesource.com/chromium/src/+/d869ab3350d8ebd95222b4a47adf87ce3d3214b1
-    # options.add_argument("--disable-extensions")
-    # options.add_argument("--profile-directory=Default")
-    # options.add_argument("--incognito")
-    # options.add_argument("--disable-plugins-discovery")
-    # options.add_argument("--start-maximized")
-    # options.add_argument("--no-proxy-server")
 
     try:
         driver = webdriver.Chrome(os.environ.get("CHROME_DRIVER_PATH"), options=options)
     except WebDriverException as e:
-        # TODO Needs to record/log error message somewhere so can be chased
         driver = None
 
-    # options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-
-    # driver = webdriver.Chrome(
-    #     executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options
-    # )
     return driver
 
 
