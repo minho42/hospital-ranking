@@ -87,9 +87,9 @@ class GoogleReviewReader:
             except NoSuchElementException:
                 return None, None
             else:
-                score, count = reviews.split("\n")
-                count = count.split()[0]
-                return score, count
+                stars, reviews = reviews.split("\n")
+                reviews = reviews.split()[0]
+                return stars, reviews
 
     def __del__(self):
         if self.driver:
@@ -110,11 +110,11 @@ if __name__ == "__main__":
         with GoogleReviewReader() as grr:
             for row in data:
                 name = row["name"]
-                score, count = grr.get(name)
-                if score and count:
-                    print(name, score, count)
-                    row["score"] = score
-                    row["count"] = count
+                stars, reviews = grr.get(name)
+                if stars and reviews:
+                    print(name, stars, reviews)
+                    row["stars"] = stars
+                    row["reviews"] = reviews
                     new_data.append(row)
 
         with open(RANKING_FILE, "w") as file:
