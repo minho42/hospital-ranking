@@ -70,7 +70,6 @@ class GoogleReviewReader:
         try:
             self.driver.get(url)
         except TimeoutException:
-            print("TimeoutException: get")
             return None, None
 
         try:
@@ -79,8 +78,6 @@ class GoogleReviewReader:
                 EC.presence_of_element_located((By.CLASS_NAME, self.review_class_name))
             )
         except TimeoutException:
-            # print("TimeoutException")
-            # print(f"{name}: not available")
             return None, None
         else:
             try:
@@ -88,7 +85,6 @@ class GoogleReviewReader:
                     self.review_class_name
                 ).text
             except NoSuchElementException:
-                # print(f"{name}: not available")
                 return None, None
             else:
                 score, count = reviews.split("\n")
