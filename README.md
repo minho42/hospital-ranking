@@ -19,7 +19,13 @@ from [https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2
 `all hospitals.json`
 
 ```json
-{ "sector": "PUBLIC", "state": "NSW", "name": "CONCORD REPATRIATION HOSPITAL" }
+[
+  {
+    "sector": "PUBLIC",
+    "state": "NSW",
+    "name": "CONCORD REPATRIATION HOSPITAL"
+  }
+]
 ```
 
 ## Output
