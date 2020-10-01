@@ -6,7 +6,7 @@ Scrape Google ratings information (stars and review count) without using Google 
 
 - Python 3
 - Google Chrome
-- Chromedriver [download](https://chromedriver.chromium.org/downloads)
+- Chromedriver
 
 ## Raw data
 
@@ -66,7 +66,7 @@ Install required packages
 $ pip install -r requirements.txt
 ```
 
-Download Chromedriver
+[Download](https://chromedriver.chromium.org/downloads) Chromedriver
 
 Change variables in `app.py`
 e.g. CHROME_DRIVER_PATH
