@@ -17,6 +17,7 @@ RAW_DATA_FILE = "all hospitals.xlsx"
 EXTRACTED_DATA_FILE = "all hospitals.json"
 RANKING_FILE = "ranking.json"
 WEBDRIVER_TIMEOUT_SECOND = 5
+CHROME_DRIVER_PATH = os.environ.get("CHROME_DRIVER_PATH")
 
 
 def get_chromedriver(headless: bool = True) -> object:
@@ -24,16 +25,14 @@ def get_chromedriver(headless: bool = True) -> object:
     prefs = {"profile.managed_default_content_settings.images": 2}
     if headless:
         options.add_argument("headless")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument(
-            "--remote-debugging-port=9222"
-        )  # Trying to fix WebDriverException("unknown error: DevToolsActivePort file doesn't exist", None, None)
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--remote-debugging-port=9222")
     options.add_experimental_option("prefs", prefs)
 
     try:
-        driver = webdriver.Chrome(os.environ.get("CHROME_DRIVER_PATH"), options=options)
+        driver = webdriver.Chrome(CHROME_DRIVER_PATH, options=options)
     except WebDriverException as e:
         driver = None
 
