@@ -50,7 +50,7 @@ Copy the source code
 
 ```shell
 $ git clone https://github.com/minho42/hospital-ranking.git
-$ cd typofinder/
+$ cd hospital-ranking/
 ```
 
 Optional: Use virtual environment
