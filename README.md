@@ -1,6 +1,10 @@
-# Australian hospital ranking
+# hospital-ranking
 
-Scrape Google ratings information (stars and review count) without using Google Maps API
+[https://hospitals.netlify.app/](https://hospitals.netlify.app/)
+
+Frontend: [https://github.com/minho42/hospital-ranking-frontend](https://github.com/minho42/hospital-ranking-frontend)
+
+Scrapes Google ratings information (stars and review count) for Australian hospitals without using Google Maps API
 
 ## Requirement
 
