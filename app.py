@@ -15,6 +15,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 RAW_DATA_FILE = "all hospitals.xlsx"
 EXTRACTED_DATA_FILE = "all hospitals.json"
+RATING_FILE = "rating.json"
 RANKING_FILE = "ranking.json"
 WEBDRIVER_TIMEOUT_SECOND = 5
 CHROME_DRIVER_PATH = os.environ.get("CHROME_DRIVER_PATH")
@@ -55,6 +56,42 @@ def prep_get_hospitals(filename: str = RAW_DATA_FILE) -> None:
         file.write(json.dumps(all_hospitals))
 
 
+def get_weighted_ranking(R, v, m, C):
+    # https://www.quora.com/How-does-IMDbs-rating-system-work
+    # IMDB formula, true 'Bayesian estimate'
+    # weighted rating (WR) = (v ÷ (v+m)) × R + (m ÷ (v+m)) × C
+    # R = average for the movie (mean) = (Rating)
+    # v = number of votes for the movie = (votes)
+    # m = minimum votes required to be listed in the Top 250 (currently 25000)
+    # C = the mean vote across the whole report (currently 7.0)
+    return (v / (v + m)) * R + (m / (v + m)) * C
+
+
+def make_weighted_ranking_file():
+    with open(RATING_FILE, "r") as file:
+        data = json.load(file)
+    total_review_count = 0
+    for row in data:
+        total_review_count += int(row["reviews"])
+
+    stars_x_reviews = 0
+    for row in data:
+        stars_x_reviews += float(row["stars"]) * int(row["reviews"])
+    average_stars = stars_x_reviews / total_review_count
+
+    new_data = []
+    for row in data:
+        R = float(row["stars"])
+        v = int(row["reviews"])
+        m = 40
+        C = average_stars
+        row["ranking"] = str(get_weighted_ranking(R, v, m, C))
+        new_data.append(row)
+
+    with open(RANKING_FILE, "w") as file:
+        file.write(json.dumps(new_data))
+
+
 class GoogleReviewReader:
     def __init__(self):
         self.driver = get_chromedriver(headless=True)
@@ -62,8 +99,9 @@ class GoogleReviewReader:
         self.base_url = "https://www.google.com.au/search?q="
         self.review_class_name = "Ob2kfd"
 
-    def get(self, name: str) -> Union[Tuple[str, str], Tuple[None, None]]:
-        name_for_url = name.replace(" ", "+")
+    def get(self, name: str, state: str) -> Union[Tuple[str, str], Tuple[None, None]]:
+
+        name_for_url = f"{name}+{state}".replace(" ", "+")
         url = f"{self.base_url}{name_for_url}"
 
         try:
@@ -86,7 +124,12 @@ class GoogleReviewReader:
             except NoSuchElementException:
                 return None, None
             else:
-                stars, reviews = reviews.split("\n")
+                try:
+                    stars, reviews = reviews.split("\n")
+                except:
+                    print(reviews)
+                    print(reviews.split("\n"))
+
                 reviews = reviews.split()[0]
                 return stars, reviews
 
@@ -103,19 +146,22 @@ class GoogleReviewReader:
 
 
 if __name__ == "__main__":
-    with open(EXTRACTED_DATA_FILE) as file:
+    with open(EXTRACTED_DATA_FILE, "r") as file:
         data = json.load(file)
         new_data = []
         with GoogleReviewReader() as grr:
             for row in data:
                 name = row["name"]
-                stars, reviews = grr.get(name)
+                state = row["state"]
+                stars, reviews = grr.get(name, state)
                 if stars and reviews:
                     print(name, stars, reviews)
                     row["stars"] = stars
                     row["reviews"] = reviews
                     new_data.append(row)
 
-        with open(RANKING_FILE, "w") as file:
+        with open(RATING_FILE, "w") as file:
             file.write(json.dumps(new_data))
+
+    make_weighted_ranking_file()
 

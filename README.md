@@ -34,6 +34,20 @@ from [https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2
 
 ## Output
 
+`rating.json`
+
+```json
+[
+  {
+    "sector": "PUBLIC",
+    "state": "NSW",
+    "name": "CONCORD REPATRIATION HOSPITAL",
+    "stars": "2.9",
+    "reviews": "288"
+  }
+]
+```
+
 `ranking.json`
 
 ```json
@@ -44,6 +58,7 @@ from [https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2
     "name": "CONCORD REPATRIATION HOSPITAL",
     "stars": "2.9",
     "reviews": "288"
+    "ranking": "x.xxxxxx"
   }
 ]
 ```
