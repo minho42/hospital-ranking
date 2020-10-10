@@ -83,7 +83,7 @@ def make_weighted_ranking_file():
     for row in data:
         R = float(row["stars"])
         v = int(row["reviews"])
-        m = 40
+        m = 1
         C = average_stars
         row["ranking"] = str(get_weighted_ranking(R, v, m, C))
         new_data.append(row)
