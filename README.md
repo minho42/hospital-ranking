@@ -57,8 +57,8 @@ from [https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2
     "state": "NSW",
     "name": "CONCORD REPATRIATION HOSPITAL",
     "stars": "2.9",
-    "reviews": "288"
-    "ranking": "x.xxxxxx"
+    "reviews": "288",
+    "ranking": "2.9022899952150216"
   }
 ]
 ```
