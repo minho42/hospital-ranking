@@ -16,7 +16,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 RAW_DATA_FILE = "all hospitals.xlsx"
 EXTRACTED_DATA_FILE = "all hospitals.json"
 RATING_FILE = "rating.json"
-RANKING_FILE = "ranking.json"
+RANKING_FILE = "./frontend/public/ranking.json"
 WEBDRIVER_TIMEOUT_SECOND = 5
 CHROME_DRIVER_PATH = os.environ.get("CHROME_DRIVER_PATH")
 
@@ -164,4 +164,3 @@ if __name__ == "__main__":
             file.write(json.dumps(new_data))
 
     make_weighted_ranking_file()
-

@@ -26,7 +26,7 @@ export default {
   created() {
     axios
       .get(
-        "https://raw.githubusercontent.com/minho42/hospital-ranking/master/ranking.json"
+        "ranking.json"
       )
       .then((response) => (this.rankingData = response.data))
       .catch((error) => {
