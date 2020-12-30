@@ -31,7 +31,7 @@
         <li>
           <Hospital
             v-for="(data, index) in filteredRankingData"
-            :key="data.name"
+            :key="index"
             :index="index + 1"
             :sector="data.sector"
             :state="data.state"
