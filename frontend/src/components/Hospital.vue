@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center">
     <div
-      class="w-full px-3 pt-1 pb-2 bg-white rounded-md border-b border-gray-400"
+      class="w-full px-3 pt-1 pb-2 bg-white border-b border-gray-400"
     >
       <div class="flex items-start text-gray-800">
         <div class="font-semibold text-gray-600">
