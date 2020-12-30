@@ -4,7 +4,7 @@
       <div class="bg-gray-200 rounded-md p-2">
         <label v-for="(state, index) in states" :key="index" class="inline-flex items-center">
           <input type="checkbox" :value="state" class="form-checkbox w-4 h-4 align-middle" v-model="checkedStates" />
-          <span class="ml-1 mr-5">{{state}}</span>  
+          <span class="ml-1 mr-5">{{state}} ({{ getStateCount(state) }})</span>  
         </label>
       </div>
     </div>
@@ -65,7 +65,17 @@ export default {
     rankingData: Array,
     isLoading: Boolean,
   },
-  methods: {},
+  methods: {
+    getStateCount(state) {
+      let count  = 0;
+      this.rankingData.filter((item)=>{
+        if (item.state === state) {
+          count++;
+        }
+      })
+      return count
+    }
+  },
   computed: {
     getAverateStar: function () {
       return this.getStarsXreviews / this.getTotalReviewCount;
