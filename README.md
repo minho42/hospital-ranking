@@ -88,8 +88,17 @@ $ pip install -r requirements.txt
 Change variables in `app.py`
 e.g. CHROME_DRIVER_PATH
 
-Run the script (this takes a long time)
 
+Download raw data from the link above.
+Change filename to `all hospitals.xlsx`
+
+```
+$ python
+>>> from app import prep_get_hospitals
+>>> prep_get_hospitals()
+```
+
+Run the script (this takes a long time)
 ```
 $ python app.py
 ```
