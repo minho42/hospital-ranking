@@ -16,7 +16,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 RAW_DATA_FILE = "all hospitals.xlsx"
 EXTRACTED_DATA_FILE = "all hospitals.json"
 RATING_FILE = "rating.json"
-RANKING_FILE = "./frontend/public/ranking.json"
+RANKING_FILE = "./frontend/ranking.json"
 WEBDRIVER_TIMEOUT_SECOND = 5
 CHROME_DRIVER_PATH = os.environ.get("CHROME_DRIVER_PATH")
 

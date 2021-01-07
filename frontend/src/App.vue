@@ -8,7 +8,7 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import HospitalList from "./components/HospitalList.vue";
-import axios from "axios";
+import rankingData from '../ranking.json'
 
 export default {
   name: "App",
@@ -18,23 +18,10 @@ export default {
   },
   data() {
     return {
-      rankingData: [],
+      rankingData,
       isLoading: true,
       isErrored: false,
     };
-  },
-  created() {
-    axios
-      .get(
-        "ranking.json"
-      )
-      .then((response) => (this.rankingData = response.data))
-      .catch((error) => {
-        console.log(error)
-        this.isErrored = true
-        }
-      )
-      .finally(()=> this.isLoading=false)
   },
 };
 </script>
