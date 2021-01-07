@@ -37,11 +37,7 @@
       </div>
     </div>
 
-    <div v-if="isLoading" class="text-xl font-bold py-3">
-      Loading...
-    </div>
-
-    <div v-else class="text-2xl font-bold py-3">
+    <div class="text-2xl font-bold py-3">
       {{ filteredRankingData.length }} hospitals
       <span v-show="getAverateStar">({{ getAverateStar.toFixed(2) }})</span>
     </div>
@@ -82,7 +78,6 @@ export default {
   },
   props: {
     rankingData: Array,
-    isLoading: Boolean,
   },
   methods: {
     getStateCount(state) {

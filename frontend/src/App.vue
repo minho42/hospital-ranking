@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
-    <HospitalList :rankingData="rankingData" :isLoading="isLoading" />
+    <HospitalList :rankingData="rankingData" />
   </div>
 </template>
 
@@ -19,7 +19,6 @@ export default {
   data() {
     return {
       rankingData,
-      isLoading: true,
       isErrored: false,
     };
   },
