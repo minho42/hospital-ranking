@@ -4,7 +4,7 @@
       Australian hospitals ranked by Google reviews
     </h1>
     <!-- TODO Make update modified date automatically -->
-    <h2 class="text-gray-600 pb-4">Updated 30/Dec/2020</h2>
+    <h2 class="text-gray-600 pb-4">Updated 17/Mar/2021</h2>
   </div>
 </template>
 
