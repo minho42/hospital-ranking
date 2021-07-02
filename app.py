@@ -13,8 +13,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-RAW_DATA_FILE = "all hospitals.xlsx"
-EXTRACTED_DATA_FILE = "all hospitals.json"
+RAW_DATA_FILE = "all_hospitals.xlsx"
+EXTRACTED_DATA_FILE = "all_hospitals.json"
 RATING_FILE = "rating.json"
 RANKING_FILE = "./frontend/ranking.json"
 WEBDRIVER_TIMEOUT_SECOND = 5
@@ -118,9 +118,7 @@ class GoogleReviewReader:
             return None, None
         else:
             try:
-                reviews = self.driver.find_element_by_class_name(
-                    self.review_class_name
-                ).text
+                reviews = self.driver.find_element_by_class_name(self.review_class_name).text
             except NoSuchElementException:
                 return None, None
             else:

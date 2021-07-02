@@ -12,13 +12,13 @@ Scrapes Google ratings information (stars and review count) for Australian hospi
 
 ## Raw data
 
-`all hospitals.xlsx`
+`all_hospitals.xlsx`
 
 from [https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm](https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm)
 
 ## Input
 
-`all hospitals.json`
+`all_hospitals.json`
 
 ```json
 [
@@ -90,7 +90,7 @@ e.g. CHROME_DRIVER_PATH
 
 
 Download raw data from the link above.
-Change filename to `all hospitals.xlsx`
+Change filename to `all_hospitals.xlsx`
 
 ```
 $ python
