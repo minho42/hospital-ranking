@@ -8,7 +8,7 @@
 <script>
 import Navbar from "./components/Navbar.vue";
 import HospitalList from "./components/HospitalList.vue";
-import rankingData from '../ranking.json'
+import rankingData from "../ranking.json";
 
 export default {
   name: "App",
@@ -24,15 +24,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-ul {
-  list-style-type: none;
-}
-</style>

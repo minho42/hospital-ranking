@@ -2,30 +2,20 @@
   <div class="flex flex-col items-center">
     <div>
       <div class="bg-gray-200 rounded-md p-2">
-        <label
-          v-for="(state, index) in states"
-          :key="index"
-          class="inline-flex items-center"
-        >
+        <label v-for="(state, index) in states" :key="index" class="inline-flex items-center">
           <input
             type="checkbox"
             :value="state"
             class="form-checkbox w-4 h-4 align-middle"
             v-model="checkedStates"
           />
-          <span class="ml-1 mr-5"
-            >{{ state }} ({{ getStateCount(state) }})</span
-          >
+          <span class="ml-1 mr-5">{{ state }} ({{ getStateCount(state) }})</span>
         </label>
       </div>
     </div>
     <div>
       <div class="bg-gray-200 rounded-md p-2 my-2">
-        <label
-          v-for="(sector, index) in sectors"
-          :key="index"
-          class="inline-flex items-center"
-        >
+        <label v-for="(sector, index) in sectors" :key="index" class="inline-flex items-center">
           <input
             type="radio"
             :value="sector"
@@ -37,7 +27,7 @@
       </div>
     </div>
 
-    <div class="text-2xl font-bold py-3">
+    <div class="text-2xl font-semibold py-3">
       {{ filteredRankingData.length }} hospitals
       <span v-show="getAverateStar">({{ getAverateStar.toFixed(2) }})</span>
     </div>

@@ -1,18 +1,14 @@
 <template>
   <div class="flex items-center justify-center">
-    <div
-      class="w-full px-3 pt-1 pb-2 bg-white border-b border-gray-400"
-    >
-      <div class="flex items-start text-gray-800">
-        <div class="font-semibold text-gray-600">
-          {{ index }}.
-        </div>
+    <div class="w-full px-3 pt-1 pb-2 bg-white border-b border-gray-400">
+      <div class="flex items-start">
+        <div class="text-gray-600">{{ index }}.</div>
         <div class="flex-1 flex-col pl-2">
-          <div class="inline-flex font-medium ">
+          <div class="inline-flex ">
             {{ name }}
           </div>
           <div class="flex items-center justify-start">
-            <div class="inline-flex font-medium bg-green-200 rounded-lg px-1">
+            <div class="inline-flex bg-green-200 rounded-lg px-1">
               {{ stars }}
             </div>
             <div class="flex-1 pl-1">({{ reviews }})</div>
