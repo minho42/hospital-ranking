@@ -89,7 +89,7 @@ $ python app.py
 
 ### RANKING_FILE
 
-`ranking.json`
+`frontend/ranking.json`
 
 ```json
 [
