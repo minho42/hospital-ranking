@@ -4,62 +4,14 @@
 
 Scrapes Google ratings information (stars and review count) for Australian hospitals without using Google Maps API
 
+----
+
 ## Requirement
 
 - Python 3
 - Google Chrome
 - Chromedriver
 
-## Raw data
-
-`all_hospitals.xlsx`
-
-from [https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm](https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm)
-
-## Input
-
-`all_hospitals.json`
-
-```json
-[
-  {
-    "sector": "PUBLIC",
-    "state": "NSW",
-    "name": "CONCORD REPATRIATION HOSPITAL"
-  }
-]
-```
-
-## Output
-
-`rating.json`
-
-```json
-[
-  {
-    "sector": "PUBLIC",
-    "state": "NSW",
-    "name": "CONCORD REPATRIATION HOSPITAL",
-    "stars": "2.9",
-    "reviews": "288"
-  }
-]
-```
-
-`ranking.json`
-
-```json
-[
-  {
-    "sector": "PUBLIC",
-    "state": "NSW",
-    "name": "CONCORD REPATRIATION HOSPITAL",
-    "stars": "2.9",
-    "reviews": "288",
-    "ranking": "2.9022899952150216"
-  }
-]
-```
 
 ## Usage
 
@@ -85,20 +37,70 @@ $ pip install -r requirements.txt
 
 [Download](https://chromedriver.chromium.org/downloads) Chromedriver
 
-Change variables in `app.py`
-e.g. CHROME_DRIVER_PATH
+Change variable `CHROME_DRIVER_PATH` in `app.py`
 
 
-Download raw data from the link above.
+[Download](https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm) raw data
+
+
 Change filename to `all_hospitals.xlsx`
-
-```
-$ python
->>> from app import prep_get_hospitals
->>> prep_get_hospitals()
-```
 
 Run the script (this takes a long time)
 ```
 $ python app.py
 ```
+
+----
+
+## Variables in app.py
+### RAW_DATA_FILE
+
+`all_hospitals.xlsx`
+
+### EXTRACTED_DATA_FILE
+
+`all_hospitals.json`
+
+```json
+[
+  {
+    "sector": "PUBLIC",
+    "state": "NSW",
+    "name": "CONCORD REPATRIATION HOSPITAL"
+  }
+]
+```
+
+## RATING_FILE
+
+`rating.json`
+
+```json
+[
+  {
+    "sector": "PUBLIC",
+    "state": "NSW",
+    "name": "CONCORD REPATRIATION HOSPITAL",
+    "stars": "2.9",
+    "reviews": "288"
+  }
+]
+```
+
+### RANKING_FILE
+
+`ranking.json`
+
+```json
+[
+  {
+    "sector": "PUBLIC",
+    "state": "NSW",
+    "name": "CONCORD REPATRIATION HOSPITAL",
+    "stars": "2.9",
+    "reviews": "288",
+    "ranking": "2.9022899952150216"
+  }
+]
+```
+
