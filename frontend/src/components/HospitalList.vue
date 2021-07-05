@@ -29,7 +29,7 @@
 
     <div class="text-2xl font-semibold py-3">
       {{ filteredRankingData.length }} hospitals
-      <span v-show="getAverateStar">({{ getAverateStar.toFixed(2) }})</span>
+      <span v-show="getAverageStars">({{ getAverageStars.toFixed(2) }})</span>
     </div>
     <div>
       <ul>
@@ -81,7 +81,7 @@ export default {
     },
   },
   computed: {
-    getAverateStar: function() {
+    getAverageStars: function() {
       return this.getStarsXreviews / this.getTotalReviewCount;
     },
     getStarsXreviews: function() {
