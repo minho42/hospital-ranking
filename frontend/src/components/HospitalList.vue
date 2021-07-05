@@ -34,7 +34,7 @@
     <div>
       <ul>
         <li>
-          <Hospital
+          <HospitalItem
             v-for="(data, index) in filteredRankingData"
             :key="index"
             :index="index + 1"
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import Hospital from "./Hospital.vue";
+import HospitalItem from "./HospitalItem.vue";
 
 export default {
   name: "HospitalList",
@@ -64,7 +64,7 @@ export default {
     };
   },
   components: {
-    Hospital,
+    HospitalItem,
   },
   props: {
     rankingData: Array,
