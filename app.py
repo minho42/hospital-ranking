@@ -40,8 +40,12 @@ def get_chromedriver(headless: bool = True) -> object:
     return driver
 
 
-def prep_get_hospitals(filename: str = RAW_DATA_FILE) -> None:
-    wb = xlrd.open_workbook(filename)
+def extract_all_hospitals_from_data() -> None:
+    print("extract_all_hospitals_from_data()")
+
+    assert RAW_DATA_FILE
+
+    wb = xlrd.open_workbook(RAW_DATA_FILE)
     sh = wb.sheet_by_index(0)
     all_hospitals = []
     for rownum in range(1, sh.nrows):
@@ -68,6 +72,10 @@ def get_weighted_ranking(R, v, m, C):
 
 
 def make_weighted_ranking_file():
+    print("make_weighted_ranking_file()")
+
+    assert RATING_FILE
+
     with open(RATING_FILE, "r") as file:
         data = json.load(file)
     total_review_count = 0
@@ -143,7 +151,11 @@ class GoogleReviewReader:
             self.driver.quit()
 
 
-if __name__ == "__main__":
+def scrape_stars_and_reviews() -> None:
+    print("scrape_stars_and_reviews()")
+
+    assert EXTRACTED_DATA_FILE
+
     with open(EXTRACTED_DATA_FILE, "r") as file:
         data = json.load(file)
         new_data = []
@@ -161,4 +173,8 @@ if __name__ == "__main__":
         with open(RATING_FILE, "w") as file:
             file.write(json.dumps(new_data))
 
+
+if __name__ == "__main__":
+    extract_all_hospitals_from_data()
+    scrape_stars_and_reviews()
     make_weighted_ranking_file()
