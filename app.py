@@ -72,6 +72,12 @@ def get_weighted_ranking(R, v, m, C):
     # v = number of votes for the movie = (votes)
     # m = minimum votes required to be listed in the Top 250 (currently 25000)
     # C = the mean vote across the whole report (currently 7.0)
+    # 
+    # In this case:
+    # R = average for the hospital (mean) = (Rating)
+    # v = number of reviews for the hospital = (reviews)
+    # m = minimum reviews required to be listed (currently 1)
+    # C = the mean review across the whole reviews
     return (v / (v + m)) * R + (m / (v + m)) * C
 
 
