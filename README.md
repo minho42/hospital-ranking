@@ -40,7 +40,7 @@ $ pip install -r requirements.txt
 Change variable `CHROME_DRIVER_PATH` in `app.py`
 
 
-[Download](https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm) raw data
+[Download](https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm) raw data ('Current Listing of Commonwealth declared hospitals')
 
 
 Change filename to `all_hospitals.xlsx`
