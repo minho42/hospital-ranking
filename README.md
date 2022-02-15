@@ -104,3 +104,15 @@ $ python app.py
 ]
 ```
 
+## Formula
+weighted rating (WR) = (v / (v + m)) * R + (m / (v + m)) * C
+
+R = average for the hospital (mean) = (Rating)
+
+v = number of reviews for the hospital = (reviews)
+
+m = minimum reviews required to be listed (currently 1)
+
+C = the mean review across the whole reviews
+
+Referenced from https://www.quora.com/How-does-IMDbs-rating-system-work
