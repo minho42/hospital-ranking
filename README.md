@@ -45,10 +45,12 @@ Change variable `CHROME_DRIVER_PATH` in `app.py`
 
 Change filename to `all_hospitals.xlsx`
 
-Run the script (this takes a long time)
+Run the script (this takes a long time, like > 30 minutes)
 ```
 $ python app.py
 ```
+
+Eventually, `ranking.json` is generated in `frontend/` i.e. `frontend/ranking.json` which can be used in the frontend app
 
 ----
 
@@ -104,7 +106,7 @@ $ python app.py
 ]
 ```
 
-## Formula
+## Ranking Formula
 weighted rating (WR) = (v / (v + m)) * R + (m / (v + m)) * C
 
 R = average for the hospital (mean) = (Rating)
