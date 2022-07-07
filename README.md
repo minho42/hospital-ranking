@@ -1,7 +1,5 @@
 # hospital-ranking
 
-[https://hospital-ranking.netlify.app](https://hospital-ranking.netlify.app)
-
 Scrapes Google ratings information (stars and review count) for Australian hospitals without using Google Maps API
 
 ----
