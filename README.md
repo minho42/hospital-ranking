@@ -2,7 +2,7 @@
 
 Scrapes Google ratings information (stars and review count) for Australian hospitals without using Google Maps API
 
-----
+---
 
 ## Requirement
 
@@ -10,49 +10,48 @@ Scrapes Google ratings information (stars and review count) for Australian hospi
 - Google Chrome
 - Chromedriver
 
-
 ## Usage
 
 Copy the source code
 
 ```shell
-$ git clone https://github.com/minho42/hospital-ranking.git
-$ cd hospital-ranking/
+git clone https://github.com/minho42/hospital-ranking.git
+cd hospital-ranking/
 ```
 
 Optional: Use virtual environment
 
 ```shell
-$ python -m venv venv
-$ source venv/bin/activate
+python -m venv venv
+source venv/bin/activate
 ```
 
 Install required packages
 
 ```shell
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 [Download](https://chromedriver.chromium.org/downloads) Chromedriver
 
 Change variable `CHROME_DRIVER_PATH` in `app.py`
 
-
 [Download](https://www1.health.gov.au/internet/main/publishing.nsf/Content/hospitals2.htm) raw data ('Current Listing of Commonwealth declared hospitals')
-
 
 Change filename to `all_hospitals.xlsx`
 
 Run the script (this takes a long time, like > 30 minutes)
+
 ```
-$ python app.py
+python app.py
 ```
 
 Eventually, `ranking.json` is generated in `frontend/` i.e. `frontend/ranking.json` which can be used in the frontend app
 
-----
+---
 
 ## Variables in app.py
+
 ### RAW_DATA_FILE
 
 `all_hospitals.xlsx`
@@ -105,7 +104,8 @@ Eventually, `ranking.json` is generated in `frontend/` i.e. `frontend/ranking.js
 ```
 
 ## Ranking Formula
-weighted rating (WR) = (v / (v + m)) * R + (m / (v + m)) * C
+
+weighted rating (WR) = (v / (v + m)) _ R + (m / (v + m)) _ C
 
 R = average for the hospital (mean) = (Rating)
 
